@@ -6,8 +6,8 @@ const LandingPage = () => {
 
     return (
         <main className="landing-page">
-            <section className="relative px-5 pb-20 pt-36 sm:px-8 sm:pb-28 sm:pt-44">
-                <div className="landing-glow pointer-events-none absolute left-1/2 top-20 h-[520px] w-[900px] -translate-x-1/2 rounded-full" />
+            <section className="relative isolate overflow-hidden px-5 pb-20 pt-36 sm:px-8 sm:pb-28 sm:pt-44">
+                <div aria-hidden="true" className="landing-glow pointer-events-none absolute left-1/2 top-6 -z-10 h-[600px] w-[1280px] -translate-x-1/2" />
                 <div className="mx-auto max-w-[800px] text-center">
                     <h1 className="tracking-[-0.055em] text-[#171412] sm:text-[66px] lg:text-[78px] text-[46px] font-bold leading-[1.02]">
                         Run every shoot

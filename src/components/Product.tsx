@@ -1,11 +1,34 @@
+import Link from 'next/link';
 import { MessageSquare, Users, Briefcase } from 'lucide-react';
-import { PREVIEW_OPTIONS } from '../lib/demo-data';
+import { PREVIEW_OPTIONS, JOBS_DATA } from '../lib/demo-data';
 
 const IconMap = {
   Briefcase: Briefcase,
   Users: Users,
   MessageSquare: MessageSquare,
 };
+
+function ProgressBar({
+  value,
+  color,
+}: {
+  value: number
+  color: "green" | "amber" | "red"
+}) {
+  const barColor = {
+    green: "bg-[#15803D]",
+    amber: "bg-[#B45309]",
+    red: "bg-[#B91C1C]",
+  }[color]
+  return (
+    <div className="h-1 bg-[#EAE8E3] rounded-full overflow-hidden">
+      <div
+        className={`h-full rounded-full ${barColor}`}
+        style={{ width: `${value}%` }}
+      />
+    </div>
+  )
+}
 
 const Product = () => {
     
@@ -81,6 +104,51 @@ const Product = () => {
                             </div>
                         ))}
                         </div>
+                        <div className="overflow-hidden rounded-xl border border-[#E9E7E2] bg-white">
+                      <div className="flex items-center justify-between border-b border-[#E9E7E2] px-4 py-3">
+                        <p className="text-[10px] font-bold sm:text-[11px]">
+                          Upcoming jobs
+                        </p>
+                        <p className="text-[9px] font-semibold text-[#4F46E5]">
+                          View all
+                        </p>
+                      </div>
+                      {JOBS_DATA.slice(0, 3).map((job, i) => (
+                        <Link
+                          key={job.name}
+                          href="/jobs"
+                        
+                          className="flex w-full items-center gap-3 border-b border-[#F0EEEA] px-4 py-3.5 text-left last:border-0 hover:bg-[#FBFAF8]"
+                        >
+                          <div
+                            className={`h-8 w-1 rounded-full ${
+                              i === 0
+                                ? "bg-[#22C55E]"
+                                : i === 1
+                                  ? "bg-[#F59E0B]"
+                                  : "bg-[#EF4444]"
+                            }`}
+                          />
+                          <div className="min-w-0 flex-1">
+                            <p className="truncate text-[10px] font-semibold text-[#1C1917] sm:text-[12px]">
+                              {job.name}
+                            </p>
+                            <p className="mt-1 truncate text-[8px] text-[#9C9188] sm:text-[9px]">
+                              {job.date} · {job.city}
+                            </p>
+                          </div>
+                          <div className="hidden w-20 sm:block">
+                            <ProgressBar
+                              value={job.readiness}
+                              color={job.statusColor}
+                            />
+                          </div>
+                          <span className="w-7 text-right text-[9px] font-bold text-[#6B6560]">
+                            {job.readiness}%
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
                     </div>
                 </div>
             </div>

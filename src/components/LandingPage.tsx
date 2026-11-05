@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import Product from './Product';
+import Workflow from './Workflow';
+import DayOf from './DayOf';
+import Footer from './Footer';
 
 const LandingPage = () => {
 
@@ -44,17 +47,52 @@ const LandingPage = () => {
                 </div>
                 <Product />
             </section>
+            <section className="border-y border-[#E9E7E2] bg-white px-5 py-10 sm:px-8">
+                <div className="mx-auto flex max-w-[1000px] flex-col items-center justify-between gap-7 md:flex-row">
+                    <p className="max-w-[220px] text-center text-[12px] font-semibold leading-5 text-[#9C9188] md:text-left">
+                    One calm workspace for every kind of production
+                    </p>
+                    <div className="flex flex-wrap items-center justify-center gap-x-9 gap-y-4 text-[13px] font-bold tracking-[-0.02em] text-[#6B6560] sm:gap-x-14">
+                    <span>Weddings</span>
+                    <span>Campaigns</span>
+                    <span>Editorial</span>
+                    <span>Commercial</span>
+                    <span>Events</span>
+                    </div>
+                </div>
+            </section>
+
+            {/* Workflow Section */}
+            <Workflow />
+            {/* Day-of Section */}
+            <DayOf />
             
-            <section id="workflow" className="scroll-mt-16 bg-white px-5 py-20 sm:px-8">
-                <div className="mx-auto max-w-[800px] text-center">
-                    <h2 className="text-[32px] font-bold tracking-[-0.03em] text-[#171412]">Workflow</h2>
+            <section className="px-5 py-24 sm:px-8 sm:py-32">
+                <div className="relative mx-auto max-w-[1080px] overflow-hidden rounded-[28px] bg-[#4F46E5] px-6 py-16 text-center text-white sm:px-12 sm:py-20">
+                    <div className="landing-cta-grid absolute inset-0 opacity-20" />
+                    <div className="relative mx-auto flex max-w-[620px] flex-col items-center justify-center">
+                        <p className="text-[12px] font-bold uppercase tracking-[0.18em] text-[#C7D2FE]">
+                            Ready when you are
+                        </p>
+                        <h2 className="mt-5 text-[36px] font-bold leading-[1.1] tracking-[-0.04em] sm:text-[50px]">
+                            Less coordinating. More creating.
+                        </h2>
+                        <p className="mx-auto mt-5 max-w-[500px] text-[15px] leading-7 text-[#DDE2FF]">
+                            Bring your next production into focus with a workspace built for
+                            the way small creative teams actually work.
+                        </p>
+                        <Link
+                            href="/sign-up"
+                            className="mt-8 rounded-xl bg-white px-6 py-3.5 text-[14px] font-bold text-[#4338CA] shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-xl"
+                        >
+                            Start planning for free
+                        </Link>
+                    </div>
                 </div>
             </section>
-            <section id="day-of" className="scroll-mt-16 bg-white px-5 py-20 sm:px-8">
-                <div className="mx-auto max-w-[800px] text-center">
-                    <h2 className="text-[32px] font-bold tracking-[-0.03em] text-[#171412]">Day-of</h2>
-                </div>
-            </section>
+
+            {/* Footer Section */}
+            <Footer />
         </main>
     );
 };

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import Product from './Product';
 import Workflow from './Workflow';
 import DayOf from './DayOf';
@@ -12,6 +12,15 @@ const LandingPage = () => {
             <section className="relative isolate overflow-hidden px-5 pb-20 pt-36 sm:px-8 sm:pb-28 sm:pt-44">
                 <div aria-hidden="true" className="landing-glow pointer-events-none absolute left-1/2 top-6 -z-10 h-[600px] w-[1280px] -translate-x-1/2" />
                 <div className="mx-auto max-w-[800px] text-center">
+                    <div className="inline-flex gap-2 mb-7 bg-white/80 border border-[#DDD9FF] shadow-sm px-3 py-1.5 items-center rounded-full">
+                        <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#EDE9FE] text-[#4F46E5]">
+                            <Check size={16} />
+                        </span>
+                        <span className="text-[12px] font-semibold text-[#4B4540]">
+                            Production, without the scramble
+                        </span>
+
+                    </div>
                     <h1 className="tracking-[-0.055em] text-[#171412] sm:text-[66px] lg:text-[78px] text-[46px] font-bold leading-[1.02]">
                         Run every shoot
                         <span className="block text-[#4F46E5]">
@@ -66,7 +75,7 @@ const LandingPage = () => {
             <Workflow />
             {/* Day-of Section */}
             <DayOf />
-            
+
             <section className="px-5 py-24 sm:px-8 sm:py-32">
                 <div className="relative mx-auto max-w-[1080px] overflow-hidden rounded-[28px] bg-[#4F46E5] px-6 py-16 text-center text-white sm:px-12 sm:py-20">
                     <div className="landing-cta-grid absolute inset-0 opacity-20" />

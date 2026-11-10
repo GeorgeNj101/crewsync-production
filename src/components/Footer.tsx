@@ -1,4 +1,10 @@
 import Link from "next/link";
+
+const FOOTER_LINKS = [
+  { href: "/about", label: "About" },
+  { href: "/legal/terms", label: "Terms" },
+  { href: "/legal/privacy", label: "Privacy" },
+] as const;
 const Footer = () => {
     return (
         <footer className="border-t border-[#E9E7E2] px-5 py-8 sm:px-8">
@@ -12,8 +18,11 @@ const Footer = () => {
             Production coordination for independent creative teams.
           </p>
           <div className="flex gap-5 text-[11px] font-medium text-[#7C7167]">
-            <a href="#product">Product</a>
-            <Link href="/sign-in">Sign in</Link>
+            {FOOTER_LINKS.map((link) => (
+              <Link key={link.href} href={link.href}>
+                {link.label}
+              </Link>
+            ))}
           </div>
         </div>
       </footer>
